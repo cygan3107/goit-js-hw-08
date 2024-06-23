@@ -68,10 +68,10 @@ const gallery = document.querySelector("ul.gallery");
 
 const markup = images
     .map(
-        ({ preview, original, description }) => `<li class="gallery__item">
-  <a class="gallery__link" href="${original}">
+        ({ preview, original, description }) => `<li class="gallery-item">
+  <a class="gallery-link" href="${original}">
     <img
-      class="gallery__image"
+      class="gallery-image"
       src="${preview}"
       data-source="${original}"
       alt="${description}"
