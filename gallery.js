@@ -64,7 +64,7 @@ const images = [
     },
 ];
 
-const galleryRef = document.querySelector("ul.gallery");
+const gallery = document.querySelector("ul.gallery");
 
 const markup = images
     .map(
@@ -81,7 +81,7 @@ const markup = images
     )
     .join("");
 
-galleryRef.innerHTML = markup;
+gallery.innerHTML = markup;
 
 const instance = basicLightbox.create(`<img width="800" height="600">`, {
     onShow: () => {
@@ -91,9 +91,9 @@ const instance = basicLightbox.create(`<img width="800" height="600">`, {
         document.removeEventListener("keydown", onEscClick);
     },
 });
-const imgLightboxRef = instance.element().querySelector("img");
+const imgLightbox = instance.element().querySelector("img");
 
-galleryRef.addEventListener("click", onGalleryClick);
+gallery.addEventListener("click", onGalleryClick);
 
 function onGalleryClick(event) {
     const currentImage = event.target;
@@ -103,7 +103,7 @@ function onGalleryClick(event) {
         return;
     }
 
-    imgLightboxRef.src = `${currentImage.dataset.source}`;
+    imgLightbox.src = `${currentImage.dataset.source}`;
 
     instance.show();
 }
